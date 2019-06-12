@@ -1,0 +1,139 @@
+@import "mixin";
+body {
+	background-color: #fff;
+	font-family: Poppins, Helvetica, Arial, sans-serif; 
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+}
+
+/* Hide Animate Section */
+.animated {visibility: hidden;}
+
+.container-fluid .inner {
+	margin: 0 auto;
+}
+
+.player .player-name {
+	font-size: 20px;
+	font-weight: bold;
+	text-transform: capitalize;
+}
+
+.player .nome {
+	text-transform: capitalize;
+}
+
+.scacchiera {
+	width: 720px;
+	min-height: 720px;
+	margin: 0 auto;
+	position: relative;
+	border-radius: 8px;
+	padding: 10px;
+	color: #fff;
+
+	&:before {
+		content:"";
+
+		@include displayFlex();
+		@include flexAlignItems(center);
+		@include flexJustifyContent(center);
+
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		border-radius: 8px;
+		background: url("../images/tavolo_da_gioco.jpg");
+
+		-webkit-box-shadow: inset 10px 10px 5px -6px rgba(0,0,0,0.1);
+		-moz-box-shadow: inset 10px 10px 5px -6px rgba(0,0,0,0.1);
+		box-shadow: inset 10px 10px 5px -6px rgba(0,0,0,0.1);
+	}
+
+}
+
+.scacchiera.start:before {
+	content:"Click START Button to play!";
+}
+
+.stars {font-size: 28px; position: relative; top: 2px; margin-left: 5px;}
+
+.info-game {
+	width: 720px;
+	margin: 0 auto;
+	font-size: 15px;
+}
+
+
+@for $i from 1 through 4 {
+	.quadrati:nth-child(#{$i}) {
+		margin: 0 0 0 0;
+	}
+}
+
+
+.quadrati {
+	margin: 30px 0 0 0;
+
+	transform: rotateY(0);
+	transition: transform 0.5s;
+	transform-style: preserve-3d;
+
+	-webkit-animation-fill-mode: backwards;
+	animation-fill-mode: backwards;
+
+	.inner svg {
+		opacity: 0;
+		visibility: hidden;
+		transform: rotateY(180deg);
+		pointer-events: none;
+	}
+
+}
+
+.quadrati .inner {
+	background: url("../images/backcard.jpg") no-repeat center / cover;
+    /*background: #4ecaca;*/
+    /*background: #d5d5d5;*/
+    width: 152.5px;
+    height: 152.5px;
+    cursor: pointer;
+    font-size: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center; border-radius: 8px;
+
+    -webkit-box-shadow: inset 10px 10px 5px -6px rgba(0,0,0,0.1);
+    -moz-box-shadow: inset 10px 10px 5px -6px rgba(0,0,0,0.1);
+    box-shadow: inset 10px 10px 5px -6px rgba(0,0,0,0.1);
+}
+
+.quadrati.clicked {
+	transform: rotateY(180deg);
+
+	.inner {
+		/*background: #d5d5d5;*/
+		background: #4ecaca;
+	}
+
+	.inner svg {
+		opacity: 1;
+		visibility: visible;
+	}
+}
+
+.quadrati.ok {
+	transform: rotateY(180deg);
+
+	.inner {
+		background: #51b351;
+	}
+
+	.inner svg {
+		opacity: 1;
+		visibility: visible;
+	}
+}

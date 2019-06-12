@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Memory Game</title>
+    <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="src/css/style.css">
+    <!--link rel="stylesheet" type="text/css" href="src/css/style.min.css"-->
+    <script src="https://use.fontawesome.com/releases/v5.7.2/js/all.js"></script>
+</head>
+<body>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-5">
+                <header>
+                    <h1 class="mb-3">Memory Game</h1>
+                    <p>Ogni coppia trovata assegner&agrave; 3 punti. Ogni errore toglier&agrave; un punto.</p>
+                    <p>A fine partita otterrai una valutazione con un massimo di 3 stelle e un minimo di 1.</p>
+                </header>
+
+                <div class="classifica-wrap position-absolute mt-4">
+                    <h3>Punteggi</h3>
+                    <div class="classifica">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Nome</th>
+                                    <th scope="col">Punteggio</th>
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+                    </div>                
+                </div>
+            </div>
+
+            <div class="col-auto my-4">
+                <div class="info-game text-center">
+
+                    <p class="player">Giocatore: <span class="player-name"></span></p>
+
+                    <div class="gameInfo my-5 row text-center">
+                        <div class="time-wrap col-4">Timer: <span class="time"></span>s</div>
+                        <div class="moves-wrap col-4">Moves: <span class="moves"></span></div>
+                        <div class="score-wrap col-4 ">Score: <span class="score"></span></div>
+                    </div>
+
+                </div>
+
+                <div class="inner text-center">
+                    <div class="gameInfo mt-3 mb-4">
+                        <button id="startGame" class="btn btn-primary ml-1">Start</button>
+                        <button class="resetGame btn btn-danger ml-2">Reset</button>
+                    </div>
+
+                    <div class="scacchiera start">
+                        <div class="row"></div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+    <div class="modal fade" id="modalScore" tabindex="-1" role="dialog" aria-labelledby="modalScoreLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalScoreLabel">Congratulazioni</h5>
+                </div>
+                <div class="modal-body">
+                    <div class="stars-wrap">Valutazione: <span class="stars"></span></div>
+
+                    <p>Hai trovato tutte le carte in <span class="time"></span> secondi, con <span class="moves"></span> mosse e con un punteggio di <span class="score"></span>.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary resetGame" data-dismiss="modal">Restart</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="src/js/script.js"></script>
+</html>

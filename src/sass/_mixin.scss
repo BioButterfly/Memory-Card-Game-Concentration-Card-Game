@@ -1,0 +1,19 @@
+@mixin hoverTransition($transition) {
+	-webkit-transition: all $transition+s ease-in-out;
+	transition: all $transition+s ease-in-out;
+}
+
+@mixin displayFlex() {
+	display: -ms-flexbox;
+	display: flex;
+}
+
+@mixin flexAlignItems($align) {
+	-ms-flex-align: $align!important;
+	align-items: $align!important;
+}
+
+@mixin flexJustifyContent($justify) {
+	-ms-flex-pack: $justify!important;
+	justify-content: $justify!important;
+}
